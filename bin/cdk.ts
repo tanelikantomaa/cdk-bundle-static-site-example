@@ -12,17 +12,17 @@ const app = new cdk.App();
 const delivery = new PipelineStack(app, 'Frontend-DeliveryPipeline', {
   name: 'Frontend',
   env: {
-    account: 'REPLACE_WITH_PIPELINE_ACCOUNT',
-    region: 'REPLACE_WITH_PIPELINE_REGION'
+    account: '838837044885',
+    region: 'eu-west-2'
   }
 });
 
 delivery.pipeline.addApplicationStage(
   new AppStage(app, 'App', {
-    apiUrl: 'REPLACE_WITH_API_URL', // this should be the HTTP API url from the cdk-bundle-go-lambda-example app
+    apiUrl: 'https://ppln1fdf6c.execute-api.eu-west-2.amazonaws.com/hello', // this should be the HTTP API url from the cdk-bundle-go-lambda-example app
     env: {
-      account: 'REPLACE_WITH_APP_ACCOUNT',
-      region: 'us-east-1',
+      account: '838837044885',
+      region: 'eu-west-2',
     },
   })
 );
